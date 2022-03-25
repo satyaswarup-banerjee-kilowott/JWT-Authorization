@@ -90,7 +90,10 @@ userRouter.post('/login', async( req:express.Request , res:express.Response ) =>
 
  userRouter.get('/logout', (req:express.Request , res:express.Response) => {
     req.logout();
-    res.redirect('/login')
+    return res.status(200).send({
+        success:true,
+        message: "logged out"
+    })
 })
 
 
