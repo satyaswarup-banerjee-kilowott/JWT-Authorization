@@ -1,8 +1,8 @@
 import express, { response } from 'express';
 import mongoose from 'mongoose';
-import apiRouter from "./router/ApiRoute";
+
 import userRouter from './router/userRouter';
-import authRouter from './router/auth';
+
 import cors from 'cors';
 import passport from 'passport';
 import config from './configuration/config';
@@ -44,8 +44,7 @@ mongoose.connection.on('error',() => console.log('No connection'));
 // });
 
 //Router config
-app.use('/getinfo' , authRouter);
-app.use('/api', apiRouter);
+
 app.use('/', userRouter);
 app.use(passport.initialize());
 
