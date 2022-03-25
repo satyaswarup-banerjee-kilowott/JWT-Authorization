@@ -6,6 +6,9 @@ import authRouter from './router/auth';
 import cors from 'cors';
 import passport from 'passport';
 import config from './configuration/config';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 
 
@@ -41,13 +44,19 @@ mongoose.connection.on('error',() => console.log('No connection'));
 // });
 
 //Router config
+app.use('/getinfo' , authRouter);
+app.use('/api', apiRouter);
 app.use('/', userRouter);
 app.use(passport.initialize());
 
 
 
 
-app.listen(config.server.port, config.server.hostname,()=>{
+// app.listen(config.server.port, config.server.hostname,()=>{
 
-    console.log(`Express Server is started at http://${config.server.hostname}:${config.server.port}`);
+//     console.log(`Express Server is started at http://${config.server.hostname}:${config.server.port}`);
+// });
+
+app.listen(process.env.SERVER_PORT,() =>{
+    console.log(`App is running on localhost:${process.env.SERVER_PORT}`);
 });

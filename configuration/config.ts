@@ -13,16 +13,16 @@ const MONGO_OPTIONS = {
     retryWrites: false
 };
 
-const MONGO_USERNAME = process.env.MONGO_USERNAME || 'root';
-const MONGO_PASSWORD = process.env.MONGO_USERNAME || 'admin';
+const MONGO_USERNAME = process.env.MONGO_USERNAME  ;
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD ;
 
 
 
-const SERVER_HOSTNAME:string = process.env.SERVER_HOSTNAME || 'localhost';
-const SERVER_PORT:string|number = process.env.SERVER_PORT || 5000;
+
+const SERVER_PORT = process.env.SERVER_PORT ;
 
 const SERVER:any = {
-    hostname: SERVER_HOSTNAME,
+
     port: SERVER_PORT
 };
 
