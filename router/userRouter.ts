@@ -88,6 +88,11 @@ userRouter.post('/login', async( req:express.Request , res:express.Response ) =>
  }
  });
 
+ userRouter.get('/logout', (req:express.Request , res:express.Response) => {
+    req.logout();
+    res.redirect('/login')
+})
+
 
  //Protected route
 userRouter.get('/protected', passport.authenticate('jwt', {session : false}), async( req:express.Request , res:express.Response ) =>{
