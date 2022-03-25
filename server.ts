@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
+const port = process.env.PORT || 8080;
 
 
 //Express configuration
@@ -56,6 +56,6 @@ app.use(passport.initialize());
 //     console.log(`Express Server is started at http://${config.server.hostname}:${config.server.port}`);
 // });
 
-app.listen(process.env.SERVER_PORT,() =>{
-    console.log(`App is running on localhost:${process.env.SERVER_PORT}`);
+app.listen(port,() =>{
+    console.log("App is running on localhost:" +port);
 });
